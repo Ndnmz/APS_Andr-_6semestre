@@ -1,0 +1,5 @@
+opencv-python>=4.5,<5
+numpy
+scikit-image
+matplotlib
+flask
