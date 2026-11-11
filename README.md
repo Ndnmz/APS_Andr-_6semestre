@@ -1,9 +1,5 @@
 # APS PDI/VC 2026/2 – Autenticação biométrica facial (1:1)
 
-Protótipo local e acadêmico: o usuário informa quem diz ser e apresenta uma imagem do rosto; o sistema compara **somente**
-com as referências daquela identidade e libera (ou nega) o nível de acesso 1, 2 ou 3 às informações ambientais **fictícias**.
-Tudo roda no computador local. Não é um sistema de segurança.
-
 ## Como executar
 
 ```
@@ -47,7 +43,7 @@ acima de 1 deixam a autenticação mais fácil, ao custo de mais falsas aceitaç
 | `dados/` | usuários **fictícios** com nível de acesso e textos ambientais **fictícios** |
 
 As fotos dos cadastrados são imagens próprias, usadas **com consentimento**. As imagens ORL vêm da base pública AT&T/ORL
-(Samaria e Harter, 1994): cite-a na bibliografia. As fotos dos cadastrados são selfies inteiras; `entrada.py` localiza o rosto
+(Samaria e Harter, 1994): As fotos dos cadastrados são selfies inteiras; `entrada.py` localiza o rosto
 e recorta uma janela 92:112 antes do pipeline (`base/impostores` e as pastas ORL de teste já estão nesse formato).
 
 ## Interface web (extra)
@@ -63,7 +59,7 @@ acrescentar fotos de referência a quem já está cadastrado (botão **+ Fotos**
 - O LBP é sensível a boné, sombra e óculos; fotos de teste mais diferentes das de cadastro aumentam o FRR.
 - A imagem é redimensionada para 92x112 sem manter a proporção; o rosto deve estar de frente e em boa luz.
 - As imagens ORL de `base/impostores` (calibração) e de `base/teste/conhecidos` são das mesmas pessoas, em fotos diferentes: o FAR
-  medido com elas é um pouco otimista. Maria e Leandro ainda não têm fotos em `base/teste/genuinos/`, então o FRR só cobre Luiza e Otávio.
+  medido com elas é um pouco otimista.
 - `FOLGA_LIMIAR` > 1 reduz falsas rejeições, mas o FAR sobe rápido quando o limiar passa da menor distância entre duas pessoas cadastradas.
 - As métricas **não estão neste arquivo de propósito**: rode `python main.py avaliar` no seu computador e use os valores gerados.
 
